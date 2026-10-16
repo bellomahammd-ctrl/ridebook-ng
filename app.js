@@ -127,8 +127,66 @@ authForm.addEventListener('submit', async event => {
     authSubmit.disabled = false;
   }
 });
+document.getElementById('rideForm').addEventListener('submit', async event => {
+  event.preventDefault();
 
-// Complete new ride-booking code goes here
+  const pickup = document.getElementById('pickup').value.trim();
+  const destination = document.getElementById('destination').value.trim();
+  const message = document.getElementById('rideMessage');
+
+  if (!pickup || !destination) {
+    message.textContent = 'Enter your pickup and destination.';
+    return;
+  }
+
+  message.textContent = 'Checking your account...';
+
+  try {
+    const { data: { user }, error: userError } =
+      await supabaseClient.auth.getUser();
+
+    if (userError) throw userError;
+
+    if (!user) {
+      message.textContent = 'Please log in first.';
+      return;
+    }
+
+    const { data: profile, error: profileError } =
+      await supabaseClient
+        .from('profiles')
+        .select('id, role')
+        .eq('id', user.id)
+        .single();
+
+    if (profileError) throw profileError;
+
+    if (profile.role !== 'passenger') {
+      message.textContent = 'Passenger accounts only.';
+      return;
+    }
+
+    const { error: rideError } = await supabaseClient
+      .from('rides')
+      .insert({
+        passenger_id: user.id,
+        pickup_address: pickup,
+        destination_address: destination,
+        status: 'requested'
+      });
+
+    if (rideError) throw rideError;
+
+    message.textContent = 'Ride request saved successfully!';
+    document.getElementById('rideForm').reset();
+
+  } catch (error) {
+    console.error('Ride request error:', error);
+    message.textContent =
+      'Could not save the ride. Please check your account and try again.';
+  }
+});
+
 
 menuButton.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
