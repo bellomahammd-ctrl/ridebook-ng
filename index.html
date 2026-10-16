@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <title>RIDEBOOK NG | Ride with confidence</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Ridebook NG home"><span class="brand-mark">R</span><span>RIDEBOOK <b>NG</b></span></a>
+    <button class="menu-button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav id="mainNav">
+      <a href="#how-it-works">How it works</a>
+      <a href="#safety">Safety</a>
+      <a href="#driver">Drive with us</a>
+      <button class="button button-outline" data-open="login">Log in</button>
+      <button class="button button-primary" data-open="signup">Get started</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR CITY. YOUR JOURNEY.</p>
+        <h1>Move around Nigeria<br><span>with confidence.</span></h1>
+        <p class="hero-text">A simple way to plan your next ride. RIDEBOOK NG is being built to connect passengers and drivers with convenience and care.</p>
+        <div class="hero-actions">
+          <button class="button button-primary button-large" data-open="signup">Book a ride <span>→</span></button>
+          <a class="button button-light button-large" href="#driver">Become a driver</a>
+        </div>
+        <p class="small-note">Prototype preview — live ride requests are not enabled yet.</p>
+      </div>
+      <div class="booking-card" id="booking">
+        <div class="card-top"><div><p class="eyebrow">PLAN YOUR JOURNEY</p><h2>Where are you going?</h2></div><span class="pin">⌖</span></div>
+        <form id="rideForm">
+          <label for="pickup">Pickup location</label>
+          <input id="pickup" name="pickup" placeholder="e.g. Wuse 2, Abuja" required>
+          <div class="route-line"><span></span></div>
+          <label for="destination">Destination</label>
+          <input id="destination" name="destination" placeholder="e.g. Jabi Lake Mall" required>
+          <button class="button button-primary full-width" type="submit">Preview ride request</button>
+          <p class="form-message" id="rideMessage" role="status"></p>
+        </form>
+        <div class="card-foot"><span>●</span> Designed for journeys across Nigeria</div>
+      </div>
+    </section>
+
+    <section class="trust-strip" id="safety">
+      <div><strong>Passenger-first</strong><span>Clear, simple booking flow</span></div>
+      <div><strong>Driver-ready</strong><span>Built with drivers in mind</span></div>
+      <div><strong>Safety-focused</strong><span>Safety features planned for launch</span></div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="section-heading"><p class="eyebrow">HOW IT WORKS</p><h2>Your journey, in a few steps.</h2><p>We're starting with the essentials and will add live services as they are connected.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-icon">⌖</div><h3>1. Enter your route</h3><p>Add your pickup point and destination to prepare a ride request.</p></article>
+        <article class="feature-card"><div class="feature-icon">↔</div><h3>2. Connect with a driver</h3><p>Driver matching and real-time availability will be added in a later build.</p></article>
+        <article class="feature-card"><div class="feature-icon">✓</div><h3>3. Complete your trip</h3><p>Trip status, receipts, ratings and payment options are planned features.</p></article>
+      </div>
+    </section>
+
+    <section class="driver-banner" id="driver">
+      <div><p class="eyebrow">FOR DRIVERS</p><h2>Ready to drive with RIDEBOOK NG?</h2><p>Driver registration and verification will be available when the backend is connected.</p></div>
+      <button class="button button-light" data-open="signup" data-role="driver">Register interest <span>→</span></button>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">R</span><span>RIDEBOOK <b>NG</b></span></a><p>© <span id="year"></span> RIDEBOOK NG. Prototype in development.</p><a href="mailto:support@ridebook.ng">Contact</a></footer>
+
+  <dialog id="authDialog" class="auth-dialog">
+    <button class="dialog-close" id="closeDialog" aria-label="Close">×</button>
+    <p class="eyebrow" id="dialogEyebrow">WELCOME TO RIDEBOOK NG</p>
+    <h2 id="dialogTitle">Create your account</h2>
+    <p class="dialog-description">This is a frontend demo. Account creation and login are not connected yet.</p>
+    <form id="authForm">
+      <label for="fullName" id="nameLabel">Full name</label>
+      <input id="fullName" name="fullName" placeholder="Your full name">
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" required>
+      <label for="role">I am a</label>
+      <select id="role" name="role"><option value="passenger">Passenger</option><option value="driver">Driver</option></select>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" minlength="8" placeholder="At least 8 characters" required>
+      <button class="button button-primary full-width" id="authSubmit" type="submit">Create demo account</button>
+      <p class="form-message" id="authMessage" role="status"></p>
+    </form>
+    <button class="text-button" id="switchAuth">Already have an account? Log in</button>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
