@@ -128,16 +128,22 @@ authForm.addEventListener('submit', async event => {
   }
 });
 
-document.getElementById('rideForm').addEventListener('submit', event => {
-  event.preventDefault();
+// Complete new ride-booking code goes here
 
-  const pickup = document.getElementById('pickup').value.trim();
-  const destination = document.getElementById('destination').value.trim();
+const menuButton = document.getElementById('menuButton');
+const nav = document.getElementById('mainNav');
 
-  if (!pickup || !destination) return;
+menuButton.addEventListener('click', () => {
+  const open = nav.classList.toggle('open');
+  menuButton.setAttribute('aria-expanded', String(open));
+});
 
-  document.getElementById('rideMessage').textContent =
-    `Route preview: ${pickup} → ${destination}. Real ride booking is not connected yet.`;
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  });
+
 });
 
 const menuButton = document.getElementById('menuButton');
