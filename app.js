@@ -130,9 +130,6 @@ authForm.addEventListener('submit', async event => {
 
 // Complete new ride-booking code goes here
 
-const menuButton = document.getElementById('menuButton');
-const nav = document.getElementById('mainNav');
-
 menuButton.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(open));
