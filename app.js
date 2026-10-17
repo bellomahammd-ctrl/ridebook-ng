@@ -184,8 +184,7 @@ document.getElementById('rideForm').addEventListener('submit', async event => {
     console.error('Ride request error:', error);
     message.textContent =
       'Could not save the ride. Please check your account and try again.';
-  }
-});
+  
 
 
 
