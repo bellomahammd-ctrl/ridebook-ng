@@ -180,14 +180,11 @@ document.getElementById('rideForm').addEventListener('submit', async event => {
     message.textContent = 'Ride request saved successfully!';
     document.getElementById('rideForm').reset();
 
-  } catch (error) {
+  }  } catch (error) {
     console.error('Ride request error:', error);
     message.textContent =
       'Could not save the ride. Please check your account and try again.';
-  
-
-
-
+  }
 });
 
 const menuButton = document.getElementById('menuButton');
