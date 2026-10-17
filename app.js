@@ -119,7 +119,8 @@ authForm.addEventListener('submit', async event => {
 
       if (result.error) throw result.error;
 
-      authMessage.textContent = 'Login successful!';
+            authMessage.textContent = 'Login successful!';
+      dialog.close();
     }
   } catch (error) {
     authMessage.textContent = error.message || 'Something went wrong. Please try again.';
