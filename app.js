@@ -130,6 +130,7 @@ authForm.addEventListener('submit', async event => {
 });
 document.getElementById('rideForm').addEventListener('submit', async event => {
   event.preventDefault();
+  document.getElementById('rideMessage').textContent = '';
 
   const pickup = document.getElementById('pickup').value.trim();
   const destination = document.getElementById('destination').value.trim();
