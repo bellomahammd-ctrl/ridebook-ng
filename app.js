@@ -1,4 +1,4 @@
-const SUPABASE_URL = 'https://oqdjivzqfesjonwgdfxl.supabase.co';
+I'mconst SUPABASE_URL = 'https://oqdjivzqfesjonwgdfxl.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_Og27rq67na6gto1SXvckyg_STKGQ4pr';
 
 const supabaseClient = window.supabase.createClient(
@@ -76,7 +76,7 @@ switchAuth.addEventListener('click', () => {
 });
 
 authForm.addEventListener('submit', async event => {
-  event.preventDefault();
+  event.preventDefault();document.getElementById('rideMessage').textContent = '';
 
   authSubmit.disabled = true;
   authMessage.textContent = 'Please wait...';
